@@ -1,0 +1,3 @@
+
+A="A_FILE"
+B="B_FILE"
