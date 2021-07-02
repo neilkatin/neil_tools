@@ -7,6 +7,7 @@ from logging.config import dictConfig
 def init_logging(app_name):
     logging_config = {
         'version': 1,
+        'disable_existing_loggers': False,
         'handlers': {
             'console': {
                 'class': 'logging.StreamHandler',
@@ -28,7 +29,7 @@ def init_logging(app_name):
             },
         },
         'root': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             #'handlers': [ 'console', 'wsgi' ],
             #'handlers': [ 'wsgi' ],
             'handlers': [ 'console' ],
@@ -48,5 +49,4 @@ def init_logging(app_name):
 
     return log
 
-#log = init_logging(__name__)
 
