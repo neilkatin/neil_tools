@@ -29,7 +29,7 @@ def init_logging(app_name):
             },
         },
         'root': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             #'handlers': [ 'console', 'wsgi' ],
             #'handlers': [ 'wsgi' ],
             'handlers': [ 'console' ],
