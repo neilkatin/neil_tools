@@ -44,6 +44,12 @@ def init_logging(app_name):
             'requests_oauthlib': {
                 'level': 'INFO',
             },
+            'O365_local.connection': {
+                'level': 'WARN',
+            },
+            'O365.connection': {
+                'level': 'WARN',
+            },
         },
     }
 
