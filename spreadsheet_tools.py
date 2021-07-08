@@ -9,6 +9,7 @@ log = logging.getLogger(__name__)
 
 
 ROW_INDEX = '__ROW_INDEX__'
+
 def matrix_to_object_array(matrix):
     """ convert an list of lists (raw spreadsheet data)  to a list of dicts.
 
@@ -34,6 +35,22 @@ def matrix_to_object_array(matrix):
 
     return result
 
+def make_index(object_array, key_name, key2_name=None):
+    """ make an index on one of the element names in the object array.  Ignore objects without a key_name entry.  Don't worry about duplicates """
+
+    # use filter to ignore objects without a key entry, then map to make a dict entry for each object with the key
+    if key2_name is None:
+        # only one key
+        result = dict(
+                map(lambda d: (d[key_name], d),
+                    filter(lambda d: key_name in d, object_array)))
+    else:
+        # two keys: combine fields with a space as the 'composite key'
+        result = dict(
+                map(lambda d: (f"{ d[key_name] } { d[key2_name] }", d),
+                    filter(lambda d: key_name in d and key2_name in d, object_array)))
+
+    return result
 
 
 def title_to_dict(title_row):
