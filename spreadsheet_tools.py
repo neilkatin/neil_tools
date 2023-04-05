@@ -61,6 +61,11 @@ def title_to_dict(title_row):
 
     result = {}
     for index, value in enumerate(title_row):
+
+        if value == '':
+            # don't track blank columns
+            continue
+
         if value in result:
             #log.debug(f"title_row { title_row }")
             raise Exception(f"title_to_dict: duplicate value '{ value }' in passed title row (new index { index }, orig index { result[value] }")
