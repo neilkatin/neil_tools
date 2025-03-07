@@ -53,6 +53,12 @@ def init_logging(app_name):
             'O365.drive': {
                 'level': 'WARN',
             },
+            'pyppeteer': {
+                'level': 'INFO',
+            },
+            'websockets': {
+                'level': 'INFO',
+            },
         },
     }
 
