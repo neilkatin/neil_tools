@@ -41,6 +41,9 @@ def init_logging(app_name):
             'selenium': {
                 'level': 'INFO',
             },
+            'msal': {
+                'level': 'INFO',
+            },
             'requests_oauthlib': {
                 'level': 'INFO',
             },
