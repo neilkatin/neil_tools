@@ -4,6 +4,7 @@
 
 import logging
 import datetime
+import math
 
 log = logging.getLogger(__name__)
 
@@ -76,11 +77,16 @@ def title_to_dict(title_row):
 
 
 # turn an excel date (days since 1900) into a python datetime
-ordinal_1900_01_01 = datetime.datetime(1900, 1, 1).toordinal()
+#ordinal_1900_01_01 = datetime.datetime(1900, 1, 1).toordinal()
+ordinal_1900_01_01 = datetime.datetime(1900, 1, 1)
 def excel_to_dt(days_since_1900):
     if isinstance(days_since_1900, datetime.datetime):
         return days_since_1900
-    dt = datetime.datetime.fromordinal(ordinal_1900_01_01 + int(days_since_1900) -2)
+
+    frac, days = math.modf(days_since_1900)
+    secs = frac * 86400
+    delta = datetime.timedelta(days=days, seconds=secs)
+    dt = ordinal_1900_01_01 + delta
 
     return dt
 
