@@ -48,10 +48,10 @@ def init_logging(app_name):
                 'level': 'INFO',
             },
             'O365_local.connection': {
-                'level': 'WARN',
+                'level': 'INFO',
             },
             'O365.connection': {
-                'level': 'WARN',
+                'level': 'INFO',
             },
             'O365.drive': {
                 'level': 'WARN',
