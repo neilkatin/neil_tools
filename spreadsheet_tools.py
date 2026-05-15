@@ -28,7 +28,7 @@ def matrix_to_object_array(matrix):
         else:
             row_dict = {}
             for name, column_num in columns.items():
-                row_dict[name] = row[column_num]
+                row_dict[name] = row[column_num] if row[column_num] is not None else ""
 
             row_dict[ROW_INDEX] = index
             #log.debug(f"new row_dict: { row_dict }")
@@ -63,7 +63,7 @@ def title_to_dict(title_row):
     result = {}
     for index, value in enumerate(title_row):
 
-        if value == '':
+        if value == '' or value == None:
             # don't track blank columns
             continue
 
