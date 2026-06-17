@@ -56,10 +56,16 @@ def init_logging(app_name):
             'O365.drive': {
                 'level': 'WARN',
             },
+            'O365.utils': {
+                'level': 'INFO',
+            },
             'pyppeteer': {
                 'level': 'INFO',
             },
             'websockets': {
+                'level': 'INFO',
+            },
+            'tzlocal': {
                 'level': 'INFO',
             },
         },
